@@ -1,0 +1,29 @@
+package com.project.banksystem.application.config.properties;
+
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(prefix = "app.config.user")
+@Slf4j
+public class UserConfig {
+    private static final Logger log = LoggerFactory.getLogger(UserConfig.class);
+    private int activationCodeExpiresDay;
+
+    @PostConstruct
+    private void log() {
+        log.info("activationCodeExpiresDay " + activationCodeExpiresDay);
+    }
+
+    public void setActivationCodeExpiresDay(int activationCodeExpiresDay) {
+        this.activationCodeExpiresDay = activationCodeExpiresDay;
+    }
+
+    public int getActivationCodeExpiresDay() {
+        return activationCodeExpiresDay;
+    }
+}

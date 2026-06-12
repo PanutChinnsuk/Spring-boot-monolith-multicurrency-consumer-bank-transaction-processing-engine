@@ -1,0 +1,14 @@
+package com.project.banksystem.core.enums.jwt;
+
+public enum TokenType {
+    ACCESS,
+    ACCOUNT_PAYMENT,
+    ACCOUNT_LOAN_PAYMENT,
+    CARD_PAYMENT,
+    OVERDRAFT_ACCOUNT_PAYBACK,
+    REFRESH,
+    TWO_FACTOR_LOGIN,
+    TWO_FACTOR_EMAIL_ADDRESS,
+    TWO_FACTOR_PASSWORD_RESET,
+    TWO_FACTOR_PHONE_NUMBER
+}
