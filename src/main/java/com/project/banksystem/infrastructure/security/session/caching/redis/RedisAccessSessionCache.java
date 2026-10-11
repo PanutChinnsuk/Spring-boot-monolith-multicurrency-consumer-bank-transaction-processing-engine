@@ -86,7 +86,7 @@ public class RedisAccessSessionCache {
             return true;
         }catch (Exception e) {
             errLog("Failed to clear access session cache: ", e);
-            redisHealthService.setRedisStatusDown();
+
             return false;
         }
     }
@@ -101,7 +101,7 @@ public class RedisAccessSessionCache {
             return true;
         }catch (Exception e) {
             errLog("Failed to clear all access session caches: ", e);
-            redisHealthService.setRedisStatusDown();
+
             return false;
         }
     }

@@ -34,19 +34,15 @@ public class RedisHealthCheck {
         boolean REDIS_DOWN = redisHealthService.getStatus();
         try {
             redisHealthCache.opsForValue().set(redisHealthService.getKeyPrefixed(), "check");
-            if (REDIS_DOWN) {
-                boolean successCleanUpPendings = internalPendingRevokeAccessSessionService
-                        .successfullyApply();
-                if (successCleanUpPendings) {
-                    log.info("Successfully revoked all pendings.");
-                    redisHealthService.setRedisStatusUp();
-                }
-
-
+            boolean successCleanUpPendings = internalPendingRevokeAccessSessionService
+                    .successfullyApply();
+            if (successCleanUpPendings && REDIS_DOWN) {
+                log.info("Successfully revoked all pendings.");
+                redisHealthService.setRedisStatusUp();
             }
             log.info("Redis status is up from health check.");
         }catch (RedisConnectionFailureException | RedisCommandTimeoutException e) {
-            REDIS_DOWN = true;
+            redisHealthService.setRedisStatusDown();
             log.error("Redis status is down from health check.");
         }
     }

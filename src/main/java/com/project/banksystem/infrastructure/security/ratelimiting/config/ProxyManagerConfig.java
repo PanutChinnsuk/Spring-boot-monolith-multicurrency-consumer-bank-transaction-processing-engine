@@ -42,14 +42,10 @@ public class ProxyManagerConfig {
                 lettuceConnectionFactory.getHostName() + ":" +
                 lettuceConnectionFactory.getPort());
 
-        SocketOptions socketOptions = SocketOptions.builder()
-                .connectTimeout(Duration.ofSeconds(redisConnectionConfig.getConnectionTimeOutSecond()))
-                .build();
 
-        ClientOptions clientOptions = ClientOptions.builder()
-                .socketOptions(socketOptions).build();
 
         redisClient.setDefaultTimeout(Duration.ofSeconds(redisConnectionConfig.getCodeConnectionTimeOutSecond()));
+
 
         StatefulRedisConnection<String, byte[]> connection =
                 redisClient.connect(RedisCodec.of(StringCodec.UTF8, ByteArrayCodec.INSTANCE));
