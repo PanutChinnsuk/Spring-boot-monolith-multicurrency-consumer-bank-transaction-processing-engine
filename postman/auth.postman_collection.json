@@ -1,0 +1,86 @@
+{
+  "info": {
+    "_postman_id": "cb69af22-5061-4c5f-a7a9-b85eafae3de1",
+    "name": "auth",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-cb69af22-5061-4c5f-a7a9-b85eafae3de1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userLoginDTO\" : {\r\n        \"userName\" : \"testnewName5\",\r\n        \"password\": \"password\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/auth/login",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2fa",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text",
+            "disabled": true
+          },
+          {
+            "key": "TwoFactorToken",
+            "value": "{{tokenPrefixed}}{{twoFactorToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationCode\" : \"765953\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/auth/verify",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "verify"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

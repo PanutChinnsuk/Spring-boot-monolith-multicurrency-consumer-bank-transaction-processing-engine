@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "761fb4e6-a499-4c0b-a033-75f14f12336f",
+    "name": "cardtransaction",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-761fb4e6-a499-4c0b-a033-75f14f12336f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "admin_transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminCardTransactionDTO\" : {\r\n        \"baseCardId\" : \"b864d89b-89f4-4a7a-a71e-fd2f39291a0c\",\r\n        \"targetCardId\" : \"b42aba46-b646-4612-98c0-f29cd2a03f3c\",\r\n        \"amount\" : 50\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/card/transfer",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "card",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "public_transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "{{tokenPrefixed}}{{paymentToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"publicCardTransactionDTO\" : {\r\n        \"targetCardId\" : \"b42aba46-b646-4612-98c0-f29cd2a03f3c\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/transaction/card/transfer",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "transaction",
+            "card",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_sell",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminCardTransactionDTO\" : {\r\n        \"baseCardId\" : \"b864d89b-89f4-4a7a-a71e-fd2f39291a0c\",\r\n        \"targetCardId\" : \"b42aba46-b646-4612-98c0-f29cd2a03f3c\",\r\n        \"amount\" : 50\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/card/sell",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "card",
+            "sell"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_buy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminCardTransactionDTO\" : {\r\n        \"baseCardId\" : \"b864d89b-89f4-4a7a-a71e-fd2f39291a0c\",\r\n        \"targetCardId\" : \"b42aba46-b646-4612-98c0-f29cd2a03f3c\",\r\n        \"amount\" : 50\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/card/buy",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "card",
+            "buy"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "dfdc5859-396e-4a06-b1fa-eb408c646eb4",
+    "name": "accounttransaction",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-dfdc5859-396e-4a06-b1fa-eb408c646eb4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "public_transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "{{tokenPrefixed}}{{paymentToken}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{url}}/api/public/transaction/account/transfer",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "transaction",
+            "account",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminAccountTransactionDTO\" : {\r\n        \"fromAccountNumber\" : \"462372975840\",\r\n        \"targetAccountNumber\" : \"683480007033\",\r\n        \"amount\" : 100\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/account/transfer",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "account",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_sell",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminAccountTransactionDTO\" : {\r\n        \"fromAccountNumber\" : \"462372975840\",\r\n        \"targetAccountNumber\" : \"574714619895\",\r\n        \"amount\" : 100\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/account/sell",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "account",
+            "sell"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_buy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"adminAccountTransactionDTO\" : {\r\n        \"fromAccountNumber\" : \"574714619895\",\r\n        \"targetAccountNumber\" : \"683480007033\",\r\n        \"amount\" : 100\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/account/buy",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "account",
+            "buy"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "admin_custom_transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "PaymentToken",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customTransactionCreateDTO\" : {\r\n        \"transactionType\" : \"TRANSFER\",\r\n        \"fxDirection\" : \"ASK\",\r\n        \"transactionPrincipal\" : \"ACCOUNT\"\r\n    },\r\n    \"customTransactionLineCreateDTOS\" : [\r\n        {\r\n        \"accountNumber\" : \"462372975840\",\r\n        \"ledgerCode\" : \"1000\",\r\n        \"amount\" : 1,\r\n        \"transactionLineDirection\" : \"CREDIT\",\r\n        \"balanceImpact\" : \"DIRECT_DEBIT\"\r\n        },\r\n        {\r\n        \"accountNumber\" : \"683480007033\",\r\n        \"ledgerCode\" : \"1000\",\r\n        \"amount\" : 1,\r\n        \"transactionLineDirection\" : \"DEBIT\",\r\n        \"balanceImpact\" : \"NO_CHECK\"\r\n        }\r\n    ] \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/transaction/account/custom",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "transaction",
+            "account",
+            "custom"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

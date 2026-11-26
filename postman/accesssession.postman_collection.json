@@ -1,0 +1,81 @@
+{
+  "info": {
+    "_postman_id": "c08d3337-c062-4ecf-914d-e83a9d72e7aa",
+    "name": "accesssession",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-c08d3337-c062-4ecf-914d-e83a9d72e7aa?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "revokeAllSessionsOfUserId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\" : \"0aa2520d-2a52-4b23-a341-9ae3b13167c4\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/access-session/revoke-all",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "access-session",
+            "revoke-all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "revokeSessionBySessionId",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accessSessionId\" : \"68850f49-88e4-4e25-94e3-7c3c07427a83\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/admin/access-session/revoke",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "access-session",
+            "revoke"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

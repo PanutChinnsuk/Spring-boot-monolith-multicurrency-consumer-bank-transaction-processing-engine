@@ -1,0 +1,119 @@
+{
+  "info": {
+    "_postman_id": "92c78945-d9ce-4774-8329-8e4b490b2e07",
+    "name": "paymentsession",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-92c78945-d9ce-4774-8329-8e4b490b2e07?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"paymentSessionRequestDTO\" : {\r\n        \"pin\" : \"123455\",\r\n        \"amount\" : 100,\r\n        \"accountId\" : \"08f31a41-64ec-48dd-9567-ea466dc2255d\",\r\n        \"targetAccountNumber\" : \"683480007033\"\r\n       // \"targetCardId\" : \"b42aba46-b646-4612-98c0-f29cd2a03f3c\",\r\n       // \"cardId\" : \"b864d89b-89f4-4a7a-a71e-fd2f39291a0c\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/payment-session/request/transfer",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "payment-session",
+            "request",
+            "transfer"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "overdraft_request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"overdraftPaymentSessionRequestDTO\" : {\r\n        \"pin\" : \"123455\",\r\n        \"paybackAmount\" : 2000,\r\n        \"overdraftId\" : \"d99f494b-2795-4f79-8749-07dae453b07b\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/payment-session/request/overdraft",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "payment-session",
+            "request",
+            "overdraft"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "loan_request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"loanPaymentSessionRequestDTO\" : {\r\n        \"pin\" : \"123455\",\r\n        \"accountId\" : \"76e99103-e767-41e2-8dc6-49ed4df132e0\",\r\n        \"paybackAmount\" : 100,\r\n        \"loanId\" : \"da236ba2-53b8-4773-a62b-b3bc852c5b2e\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/payment-session/request/loan",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "payment-session",
+            "request",
+            "loan"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

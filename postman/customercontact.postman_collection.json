@@ -1,0 +1,93 @@
+{
+  "info": {
+    "_postman_id": "2a5c37ae-83ca-4337-93ff-cd05a4681c86",
+    "name": "customercontact",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-2a5c37ae-83ca-4337-93ff-cd05a4681c86?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "verify_email",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "TwoFactorToken",
+            "value": "{{tokenPrefixed}}{{twoFactorToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationCode\" : \"666734\",\r\n    \"customerContactId\" : \"35a37217-435f-4f42-a449-1cefc166b004\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/contact/verify/email",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "contact",
+            "verify",
+            "email"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "verify_phone",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          },
+          {
+            "key": "TwoFactorToken",
+            "value": "{{tokenPrefixed}}{{twoFactorToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"verificationCode\" : \"668279\",\r\n    \"customerContactId\" : \"66efe3a5-f50b-491d-8a4e-ce6b1a309bb4\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/contact/verify/phone",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "contact",
+            "verify",
+            "phone"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

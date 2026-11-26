@@ -1,0 +1,84 @@
+{
+  "info": {
+    "_postman_id": "4b7c47e7-517f-4cef-b3e5-390e562a87b8",
+    "name": "cardcontact",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46871837",
+    "_collection_link": "https://go.postman.co/collection/46871837-4b7c47e7-517f-4cef-b3e5-390e562a87b8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "getReferCode",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cardId\" : \"s\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/card/contact/refer/me",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "card",
+            "contact",
+            "refer",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "addCard",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{tokenPrefixed}}{{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"code\" : \"s\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/api/public/card/contact/add",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "api",
+            "public",
+            "card",
+            "contact",
+            "add"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
