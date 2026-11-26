@@ -17,6 +17,8 @@ Designed and implemented centralized banking transaction processing supporting:
 - Foreign exchange buy and sell transactions.
 - Custom transfer workflows.
 - Multi-stage transaction approval.
+- Ledger management and bookkeeping.
+- Financial record keeping and accounting validation.
 - Transaction lifecycle management.
 - Transaction cancellation and expiration.
 - Reversals and refunds.
